@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(
-    MaterialApp(
+void main() => runApp(FlutterTutorialApp());
+
+class FlutterTutorialApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
           title: Text("Flutter tutorial"),
@@ -17,7 +20,7 @@ void main() {
             fontWeight: FontWeight.bold,
             decoration: TextDecoration.underline,
             letterSpacing: 3.0,
-            color: Colors.black87,
+            color: Colors.red,
             fontFamily: "Lobster",
           ),
         ),
@@ -26,6 +29,6 @@ void main() {
           backgroundColor: Colors.green[800],
         ),
       ),
-    ),
-  );
+    );
+  }
 }
