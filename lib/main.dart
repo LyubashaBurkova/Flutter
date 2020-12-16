@@ -14,9 +14,11 @@ class FlutterTutorialApp extends StatelessWidget {
           centerTitle: true,
           backgroundColor: Colors.green[400],
         ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.end,
+        body: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.baseline,//линия выравнивания текста
+            //для нее обязателен textBaseline
+          textBaseline: TextBaseline.alphabetic,
           children: [
             Container(
                 color: Colors.blueAccent,
@@ -31,7 +33,7 @@ class FlutterTutorialApp extends StatelessWidget {
             Container(
                 color: Colors.blueAccent,
                 padding: EdgeInsets.all(80),
-                //child: Text("1")
+                child: Text("1")
             ),
           ]
         ),
