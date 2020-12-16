@@ -13,23 +13,24 @@ class FlutterTutorialApp extends StatelessWidget {
           centerTitle: true,
           backgroundColor: Colors.green[400],
         ),
-        body: IconButton(
-          icon: Icon(
-            CustomIcons.beach_access,
-            size: 50.0,
-            color: Colors.red,
+        body: Center(
+          child: IconButton(
+            icon: Icon(
+              CustomIcons.beach_access,
+              size: 50.0,
+              color: Colors.red,
+            ),
+            color: Colors.grey[900],
+            iconSize: 100.0,
+            onPressed: () {
+              print("Button has been pressed");
+            },
           ),
-          color: Colors.grey[900],
-          iconSize: 100.0,
-          onPressed: (){
-            print("Button has been pressed");
-          },
         ),
         floatingActionButton: FloatingActionButton(
-          child: Text("Add"),
-          backgroundColor: Colors.green[800],
-          onPressed: null
-        ),
+            child: Text("Add"),
+            backgroundColor: Colors.green[800],
+            onPressed: null),
       ),
     );
   }
