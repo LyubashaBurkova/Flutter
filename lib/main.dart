@@ -14,49 +14,26 @@ class FlutterTutorialApp extends StatelessWidget {
           centerTitle: true,
           backgroundColor: Colors.green[400],
         ),
-        body: Container(
-          child: Container(
-            //color: Colors.yellow[300],
-            margin: EdgeInsets.all(40),
-            padding: EdgeInsets.all(40),
-            transform: Matrix4.rotationZ(0.05),
-            decoration: BoxDecoration(
-              color: Colors.yellow[100],
-              //borderRadius: BorderRadius.all(Radius.circular((50))),
-              shape: BoxShape.circle,
-              border: Border.all(
-                width: 5,
-                color: Colors.blue[200],
-                style: BorderStyle.solid,
-              ),
-              boxShadow: [
-                BoxShadow(
-                    color: Colors.blue[200],
-                    spreadRadius: 20,
-                    blurRadius: 20,
-                    offset: Offset(10, 3))
-              ],
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Container(
+                color: Colors.blueAccent,
+                padding: EdgeInsets.all(30),
+                child: Text("1")
             ),
-            child: IconButton(
-              icon: Icon(
-                CustomIcons.beach_access,
-                size: 50.0,
-                color: Colors.red,
-              ),
-              iconSize: 100.0,
-              onPressed: () {
-                print("Button has been pressed");
-              },
+            Container(
+                color: Colors.orangeAccent,
+                padding: EdgeInsets.all(50),
+                child: Text("1")
             ),
-          ),
-          alignment: Alignment.topLeft,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/images/fox.jpg"),
-              //fit: BoxFit.fill,//на весь экран
+            Container(
+                color: Colors.blueAccent,
+                padding: EdgeInsets.all(80),
+                //child: Text("1")
             ),
-            //gradient:  RadialGradient(colors: [Colors.yellow[100], Colors.blue])),
-          ),
+          ]
         ),
         floatingActionButton: FloatingActionButton(
             child: Text("Add"),
