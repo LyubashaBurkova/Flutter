@@ -61,32 +61,34 @@ class FlutterTutorialApp extends StatelessWidget {
             shadowColor: Colors.blue,
             margin: EdgeInsets.symmetric(vertical: 20.0, horizontal:10.0),
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-            child: Column(
-              children: [
-                Text(
-                  //events[index].location,//events[index] - объект
-                  "${events[index].name}",
-                  style: TextStyle(fontSize: 30),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "location - ${events[index].location}, ${events[index].startDateTime}",
-                      style: TextStyle(fontSize: 16),
-                    )
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(events[index].location),
-                    SizedBox(width: 10),
-                    Text(events[index].startDateTime.toString()),
-                  ],
-                ),
-              ],
-            ),
+            child: ListTile(
+              title: Text(
+                events[index].name,
+                style: TextStyle(fontSize: 20),
+              ),
+              subtitle: Text(
+                  "${events[index].location}, ${events[index].startDateTime}"
+              ),
+              leading: Icon(//виджет до заголовка
+                Icons.local_activity,
+                size: 40,
+                color: Colors.grey[800],
+              ),
+              trailing: IconButton(//добавление кнопки
+                icon: Icon(Icons.arrow_forward_ios),
+                onPressed: () => print("${events[index].name} - tap Details"),
+                //color: Colors.grey[500],
+              ),
+              onTap: () => print("${events[index].name} - tap"),//клик
+              onLongPress: () => print("${events[index].name} - long tap"),//долгий клик
+              //enabled: false,//задизайблена
+              selected: true,
+              // trailing: Icon(
+              //   Icons.arrow_forward_ios,
+              //   size: 20,
+              //   color: Colors.grey[500],
+              // ),
+            )
           ),
         ),
         floatingActionButton: FloatingActionButton(
