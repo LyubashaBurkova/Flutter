@@ -5,6 +5,18 @@ import 'package:flutter_app/custom_icons.dart';
 void main() => runApp(FlutterTutorialApp());
 
 class FlutterTutorialApp extends StatelessWidget {
+  final List<String> events = [
+    "Events 1",
+    "Events 2",
+    "Events 3",
+    "Events 4",
+    "Events 5",
+    "Events 6",
+    "Events 7",
+    "Events 8",
+    "Events 9",
+  ];
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -14,81 +26,22 @@ class FlutterTutorialApp extends StatelessWidget {
           centerTitle: true,
           backgroundColor: Colors.green[400],
         ),
-        body: Center(
-          child: Container(
-            color: Colors.green,
-            width: 400,
-            height: 500,
-            child: Wrap(
-              direction: Axis.horizontal,
-              spacing: 20,
-              //отступ между контейнерами по главной оси
-              runSpacing: 30,
-              //отступы по второстепенной оси
-
-              alignment: WrapAlignment.center,
-              //выравнивание по главной оси
-              runAlignment: WrapAlignment.center,
-              //выравнивание по второстепенной оси
-
-              verticalDirection: VerticalDirection.up,//последовательность заполнения строк, сначала заполняется нижняя
-              //textDirection: TextDirection.ltr,//слева направо
-              children: [
-                Container(
-                  color: Colors.red,
-                  width: 100,
-                  height: 100,
-                  child: Text(
-                    "X",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-                Container(
-                  color: Colors.red,
-                  width: 100,
-                  height: 100,
-                ),
-                Container(
-                  color: Colors.red,
-                  width: 100,
-                  height: 100,
-                ),
-                Container(
-                  color: Colors.red,
-                  width: 100,
-                  height: 100,
-                  child: Text(
-                    "X",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-                SizedBox(
-                  width: 100,
-                  height: 100,
-                ),
-                Container(
-                  color: Colors.red,
-                  width: 100,
-                  height: 100,
-                ),
-                Container(
-                  color: Colors.red,
-                  width: 100,
-                  height: 100,
-                ),
-                Container(
-                  color: Colors.red,
-                  width: 100,
-                  height: 100,
-                ),
-                Container(
-                  color: Colors.red,
-                  width: 100,
-                  height: 100,
-                ),
-              ],
-            ),
+        body: ListView.separated(
+          //reverse: true,
+          //controller: ScrollController(initialScrollOffset: 150),
+          physics: BouncingScrollPhysics(),
+          //physics: NeverScrollableScrollPhysics(),//отключаем скролл
+          padding: EdgeInsets.all(5),
+          itemCount: events.length,
+          itemBuilder: (_, index) => Text(
+            events[index],
+            style: TextStyle(fontSize: 100),
           ),
+          separatorBuilder: (_, ___) => Divider(color: Colors.red, thickness: 5,),
+          // separatorBuilder: (_, ___) => Text(
+          //   "_____________________________",
+          //   style: TextStyle(fontSize: 30),
+          // ),
         ),
         floatingActionButton: FloatingActionButton(
             child: Text("Add"),
