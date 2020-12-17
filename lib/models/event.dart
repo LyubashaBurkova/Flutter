@@ -5,5 +5,3 @@ class Event {
 
   Event({this.name, this.location, this.startDateTime});
 }
-
-//var e = Event(location: "d;lf", name: "el", startDateTime: DateTime.now());
