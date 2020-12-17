@@ -14,40 +14,81 @@ class FlutterTutorialApp extends StatelessWidget {
           centerTitle: true,
           backgroundColor: Colors.green[400],
         ),
-        body: Container(
-          color: Colors.green,
-          width: 400,
-          height: 500,
-          child: Stack(
-              alignment: Alignment.bottomRight,
-              //overflow: Overflow.visible,
-              //fit: StackFit.loose,//любая высота элементов, ограниченная размером экрана,
-              //fit: StackFit.expand,//элементы будут увеличены до максимально возможного значения
-              fit: StackFit.passthrough,//элементы полностью зависят от ограничений родительского виджета,
+        body: Center(
+          child: Container(
+            color: Colors.green,
+            width: 400,
+            height: 500,
+            child: Wrap(
+              direction: Axis.horizontal,
+              spacing: 20,
+              //отступ между контейнерами по главной оси
+              runSpacing: 30,
+              //отступы по второстепенной оси
+
+              alignment: WrapAlignment.center,
+              //выравнивание по главной оси
+              runAlignment: WrapAlignment.center,
+              //выравнивание по второстепенной оси
+
+              verticalDirection: VerticalDirection.up,//последовательность заполнения строк, сначала заполняется нижняя
+              //textDirection: TextDirection.ltr,//слева направо
               children: [
-            Container(
-              child: Container(
-                  color: Colors.purple,
-                  padding: EdgeInsets.all(130),
-                  child: Text("1")),
+                Container(
+                  color: Colors.red,
+                  width: 100,
+                  height: 100,
+                  child: Text(
+                    "X",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                Container(
+                  color: Colors.red,
+                  width: 100,
+                  height: 100,
+                ),
+                Container(
+                  color: Colors.red,
+                  width: 100,
+                  height: 100,
+                ),
+                Container(
+                  color: Colors.red,
+                  width: 100,
+                  height: 100,
+                  child: Text(
+                    "X",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                SizedBox(
+                  width: 100,
+                  height: 100,
+                ),
+                Container(
+                  color: Colors.red,
+                  width: 100,
+                  height: 100,
+                ),
+                Container(
+                  color: Colors.red,
+                  width: 100,
+                  height: 100,
+                ),
+                Container(
+                  color: Colors.red,
+                  width: 100,
+                  height: 100,
+                ),
+                Container(
+                  color: Colors.red,
+                  width: 100,
+                  height: 100,
+                ),
+              ],
             ),
-            Container(
-                color: Colors.orangeAccent,
-                padding: EdgeInsets.all(100),
-                child: Text("1")),
-            Positioned(
-              width:100,//приоритетнее, чем свойство сомого элемента
-              height:100,
-              top: -20,
-              left:30,
-              child: Container(
-                child: Container(
-                    color: Colors.blueAccent,
-                    padding: EdgeInsets.all(80),
-                    child: Text("1")),
-              ),
-            ),
-          ]),
+          ),
         ),
         floatingActionButton: FloatingActionButton(
             child: Text("Add"),
