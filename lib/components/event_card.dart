@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/models/event.dart';
 
-class EventCard extends StatelessWidget {
+class EventCard extends StatefulWidget {
   const EventCard({
     Key key,
     @required this.event,
@@ -10,7 +10,21 @@ class EventCard extends StatelessWidget {
   final Event event;
 
   @override
-  Widget build(BuildContext context) {
+  _EventCardState createState() => _EventCardState();
+}
+
+class _EventCardState extends State<EventCard> {
+  bool _isEnabled = true;//_Name - приватный метод
+  @override
+  void initState() {//отработает 1 раз
+    // TODO: implement initState
+    super.initState();
+    print("initState");
+  }
+
+  @override
+  Widget build(BuildContext context) {//
+    print("build");
     return Card(
         color: Colors.yellow[300],
         elevation: 10,
@@ -18,12 +32,13 @@ class EventCard extends StatelessWidget {
         margin: EdgeInsets.symmetric(vertical: 20.0, horizontal:10.0),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         child: ListTile(
+          enabled: _isEnabled,
           title: Text(
-            event.name,
+            widget.event.name,
             style: TextStyle(fontSize: 20),
           ),
           subtitle: Text(
-              "${event.location}, ${event.startDateTime}"
+              "${widget.event.location}, ${widget.event.startDateTime}"
           ),
           leading: Icon(
             Icons.local_activity,
@@ -31,11 +46,11 @@ class EventCard extends StatelessWidget {
             color: Colors.grey[800],
           ),
           trailing: IconButton(
-            icon: Icon(Icons.arrow_forward_ios),
-            onPressed: () => print("${event.name} - tap Details"),
+            icon: _isEnabled ? Icon(Icons.lock_outline) : Icon(Icons.lock_open),
+            onPressed: () => setState(() => _isEnabled = !_isEnabled),
           ),
-          onTap: () => print("${event.name} - tap"),
-          onLongPress: () => print("${event.name} - long tap"),
+          onTap: () => print("${widget.event.name} - tap"),
+          onLongPress: () => print("${widget.event.name} - long tap"),
         )
     );
   }
